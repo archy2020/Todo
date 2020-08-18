@@ -1,7 +1,7 @@
 //require the library
 const mongoose = require('mongoose');
 const dateonly=require('mongoose-dateonly')(mongoose); 
-const habbitSchema = new mongoose.Schema({
+const todoSchema = new mongoose.Schema({
 
     name: {
         type: String,
@@ -24,5 +24,5 @@ const habbitSchema = new mongoose.Schema({
     }
 });
 
-const Habbit = mongoose.model('Habbit', habbitSchema );
-module.exports = Habbit;
+const Todo = mongoose.model('Todo', todoSchema );
+module.exports = Todo;

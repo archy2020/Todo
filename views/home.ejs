@@ -11,24 +11,24 @@
   <body>
     <div id="main">
       <div id="heading">
-        <h1>Habit Tracker</h1>
+        <h1>To Do Tracker</h1>
       </div>
       <!-- page heading -->
       <div id="page-heading">
         <div>
-          <h2>Daily Habit</h2>
+          <h2>My To Do List </h2>
         </div>
-        <!-- button for new habit entry pop up form -->
+        <!-- button for new todo entry pop up form -->
         <div>
-          <button class="open-button" onclick="openForm()">Add More Habits</button>
+          <button class="open-button" onclick="openForm()">Add More To Do Item</button>
         </div>
       </div>    
-        <!-- habit list entry  -->
-      <div id="habit_list_container">
+        <!-- todo list entry  -->
+      <div id="todo_list_container">
         <ul id="list">
-             <% for(let i of habbit_list) {%>
+             <% for(let i of todo_list) {%>
               
-              <li class="habbit">
+              <li class="todo">
                 <div class="detail">  
                   <p id="my_name"><a href="/week"><%= i.name %></a> </p>
                   <p>Completed: <%= i.completed %> / 7</p>
@@ -37,8 +37,8 @@
                 </div>
                 <!-- <div id="seeResult">Hi</div> -->
                 <div class="delete-button">
-                    <a href="/delete_habbit/?id=<%= i._id %>">
-                    <button type="submit" class="btn">Remove This Habit</button>
+                    <a href="/delete_todo/?id=<%= i._id %>">
+                    <button type="submit" class="btn">Remove This To Do Item</button>
                   </a>
                 </div>
               </li>
@@ -50,11 +50,11 @@
 
       <!-- pop up form -->
       <div class="form-popup" id="myForm">
-        <form action="/create_habbit" class="form-container" method="POST">
-          <h1>Include your new Habit</h1>
+        <form action="/create_todo" class="form-container" method="POST">
+          <h1>Include your new To Do Task</h1>
       
-          <label for="name"><b>Habit</b></label>
-          <input type="text" placeholder="Enter Habit" name="name" required>
+          <label for="name"><b>Task</b></label>
+          <input type="text" placeholder="Enter To Do Item" name="name" required>
 
           <label for="completed"><b>Completed Days</b></label>
           <input type="number" placeholder="Enter completed in day" name="completed" required> <br>
@@ -65,7 +65,7 @@
           <label for="date"><b>Date of Creation</b></label><br>
           <input type="date" placeholder="Enter Date" name="date" required>
       
-          <button type="submit" class="btn">Add Habits</button>
+          <button type="submit" class="btn">Add Item</button>
           <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
         </form>
       </div>

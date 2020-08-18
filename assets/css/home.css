@@ -156,7 +156,7 @@ ul li:nth-child(even) {
 ul li:hover {
     background: #ddd;
   }
-.habbit{
+.todo{
     display: flex;
     flex-direction: column;
 }
@@ -172,7 +172,7 @@ ul li:hover {
  text-decoration: none;
 }
 
-.habbit .detail{
+.todo .detail{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -192,7 +192,7 @@ ul li:hover {
   font-size: 1rem ;
 }
 
-.habbit .delete-button a{
+.todo .delete-button a{
   color: white;
 }
 
@@ -205,7 +205,7 @@ ul li:hover {
    width: 100%;
  }
 
- #my_habit{
+ #my_todo{
    font-size: 20px;
    color: purple;
    font-weight: 600;

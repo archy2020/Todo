@@ -1,4 +1,4 @@
-// to add new habbit;
+// to add new todo;
 function openForm() {
     document.getElementById("myForm").style.display = "block";
 }

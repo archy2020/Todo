@@ -3,7 +3,7 @@ const path = require('path');
 const port = 8000;
 
 const db = require('./config/mongoose');
-const Habbit = require('./models/habbit');
+const todo = require('./models/todo');
 const app = express();
 
 app.set('view engine', 'ejs');
@@ -13,22 +13,22 @@ app.use(express.static('assets'));
 
 app.get('/search',function(req,res){
     
-    Habbit.find({}, function(err,habits){
+    todo.find({}, function(err,todo){
       if(err){
           console.log('error in fetching data from db');
           return;
       }
     
       return res.render('home',{
-        title : "Habbit Tracker",
-        habbit_list : habits
+        title : " To Do Tracker",
+        todo_list : todo
      
       });
   });
 });
 
 app.get('/week',function(req,res){
-    Habbit.find({}, function(err,habits){
+    todo.find({}, function(err,todo){
         if(err){
             console.log('error in fetching data from db');
             return;
@@ -36,15 +36,15 @@ app.get('/week',function(req,res){
       
     return res.render('week', {
         title: "Week Plan",
-        habbit_list : habits });
+        todo_list : todo });
 });
 });
 
-app.get('/delete_habbit', function(req,res){
+app.get('/delete_todo', function(req,res){
     let id = req.query.id;
-    Habbit.findByIdAndDelete(id,function(err){
+      todo.findByIdAndDelete(id,function(err){
         if(err){
-            console.log('error in deleting habbit');
+            console.log('error in deleting todo');
             return;
         }
         return res.redirect('back');
@@ -52,17 +52,17 @@ app.get('/delete_habbit', function(req,res){
    
  });
 
-app.post('/create_habbit', function(req,res){
+app.post('/create_todo', function(req,res){
 
-    Habbit.create({
+    todo.create({
         name: req.body.name,
         completed: req.body.completed,
         duration: req.body.duration,
         date: req.body.date
-    }, function(err, newHabit){
+    }, function(err, newTodo){
 
         if(err){
-            console.log('error in creating new habit'); 
+            console.log('error in creating new todo'); 
             return;
         }
    return res.redirect('back');
