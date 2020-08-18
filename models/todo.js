@@ -8,20 +8,16 @@ const todoSchema = new mongoose.Schema({
         required: true
     },
 
-    completed: {
-        type: Number,
-        required: true
-    },
-
-    duration: {
-        type: Number,
-        required: true
-    },
-
     date: {
         type: dateonly,
         required: true
+    },
+   
+    category: {
+        type: String,
+        required: true
     }
+
 });
 
 const Todo = mongoose.model('Todo', todoSchema );

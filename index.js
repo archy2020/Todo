@@ -27,18 +27,18 @@ app.get('/search',function(req,res){
   });
 });
 
-app.get('/week',function(req,res){
-    todo.find({}, function(err,todo){
-        if(err){
-            console.log('error in fetching data from db');
-            return;
-        }
+// app.get('/week',function(req,res){
+//     todo.find({}, function(err,todo){
+//         if(err){
+//             console.log('error in fetching data from db');
+//             return;
+//         }
       
-    return res.render('week', {
-        title: "Week Plan",
-        todo_list : todo });
-});
-});
+//     return res.render('week', {
+//         title: "Week Plan",
+//         todo_list : todo });
+// });
+// });
 
 app.get('/delete_todo', function(req,res){
     let id = req.query.id;
@@ -56,8 +56,7 @@ app.post('/create_todo', function(req,res){
 
     todo.create({
         name: req.body.name,
-        completed: req.body.completed,
-        duration: req.body.duration,
+        category: req.body.category,
         date: req.body.date
     }, function(err, newTodo){
 

@@ -11,7 +11,7 @@
   <body>
     <div id="main">
       <div id="heading">
-        <h1>To Do Tracker</h1>
+        <h1><i class="fa fa-tasks" aria-hidden="true"> &nbsp;</i>To Do Tracker</h1>
       </div>
       <!-- page heading -->
       <div id="page-heading">
@@ -20,26 +20,27 @@
         </div>
         <!-- button for new todo entry pop up form -->
         <div>
-          <button class="open-button" onclick="openForm()">Add More To Do Item</button>
+          <button class="open-button" onclick="openForm()">Add Task</button>
         </div>
       </div>    
         <!-- todo list entry  -->
       <div id="todo_list_container">
         <ul id="list">
-             <% for(let i of todo_list) {%>
-              
+          <% for(let i of todo_list) {%>
               <li class="todo">
                 <div class="detail">  
-                  <p id="my_name"><a href="/week"><%= i.name %></a> </p>
-                  <p>Completed: <%= i.completed %> / 7</p>
-                  <p>Duration: <%= i.duration %> hr</p>
-                  <p>Start Date: <%= i.date %></p>
+                  <div class="detail1">
+                  <p id="my_name"><%= i.name %></a> </p>
+                  <button class="cat_try" ><%= i.category %></button>
+                  </div>
+                  <div class="detail2">
+                  <p>Deadline: <%= i.date %></p>
                 </div>
-                <!-- <div id="seeResult">Hi</div> -->
+                </div>
                 <div class="delete-button">
                     <a href="/delete_todo/?id=<%= i._id %>">
-                    <button type="submit" class="btn">Remove This To Do Item</button>
-                  </a>
+                    <button type="submit" class="btn">Remove This Task</button>
+                    </a>
                 </div>
               </li>
   
@@ -53,16 +54,19 @@
         <form action="/create_todo" class="form-container" method="POST">
           <h1>Include your new To Do Task</h1>
       
-          <label for="name"><b>Task</b></label>
+          <label for="name"><b>Task Description</b></label>
           <input type="text" placeholder="Enter To Do Item" name="name" required>
 
-          <label for="completed"><b>Completed Days</b></label>
-          <input type="number" placeholder="Enter completed in day" name="completed" required> <br>
-      
-          <label for="duration"><b>Duration</b></label>
-          <input type="number" placeholder="Enter Duration in hour" name="duration" required> <br>
+          <label for="category"><b>CATEGORY</b></label> <br>
+          <select class="mySelect" name="category" required>
+            <option  > Choose a Category </option> <br>
+            <option  > Personal </option> <br>
+            <option > Work </option> <br>
+            <option > Office </option> <br>
+            <option > School </option> <br>
+          </select> <br>
 
-          <label for="date"><b>Date of Creation</b></label><br>
+          <label for="date"><b>Due Date</b></label><br>
           <input type="date" placeholder="Enter Date" name="date" required>
       
           <button type="submit" class="btn">Add Item</button>
